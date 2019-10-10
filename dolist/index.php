@@ -11,7 +11,7 @@ if (!isset($_SESSION['UUID']) and !isset($_SESSION['username'])) {
 <html>
    <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" type="text/css" href="./includes/css/styles.css">
+        <link rel="stylesheet" type="text/css" href="./includes/css/style.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
         <?php 
             $UUID = $_SESSION['UUID'];
@@ -57,9 +57,10 @@ if (!isset($_SESSION['UUID']) and !isset($_SESSION['username'])) {
    <body class="mainBody c-s-loaded">
     <div class="main">
       <div id="myDIV" class="header">
-         <h2 style="margin:5px">My To Do List</h2>
+         <h2 style="margin:5px">To Do List</h2>
          <input type="text" id="myInput" name="Item" placeholder="Eat Lunch....">
          <span onclick="newElement()" class="addBtn btn btn-primary">Add</span>
+                     
          <select onchange="newSort()" class="changeSort" id="changeSort">
             <option value="newOld" <?php if ($sort == "newOld"){echo "selected";} ?> >Newest - Oldest</option>
             <option value="oldNew" <?php if ($sort == "oldNew"){echo "selected";} ?> >Oldest - Newest</option>
@@ -75,7 +76,7 @@ if (!isset($_SESSION['UUID']) and !isset($_SESSION['username'])) {
       </ul>
       <p>
         
-        <a href="logout.php" class="btn btn-danger">Sign Out of Your Account</a>
+        <a href="logout.php" class="btn btn-danger">SIGN OUT</a>
     </p>
   </div>
   <form>
@@ -122,6 +123,9 @@ function displaylist(){
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
     </script>
       <script>
+
+      
+     
         function escapeHtml(text) {
           var map = {
             '&': '&amp;',
