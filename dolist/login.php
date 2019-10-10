@@ -29,7 +29,9 @@ if (isset($_SESSION['UUID']) and isset($_SESSION['username'])) {
 		</form>
 	</div>
 </div>
+
 <?php
+
 $temp = $_SESSION['temp'];
 $tempT = $_SESSION['tempT'];
 $_SESSION['temp'] = null;
