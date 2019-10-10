@@ -21,7 +21,7 @@ switch ($sort){
 $r->bindValue(':uuid',$UUID);
 $r->execute();
 if ($r->rowCount() == 0){
-    echo "<h3>No Cur</h3>";
+    echo "<h3></h3>";
     $empty = true;
 }else{
     while ($row = $r->fetch(PDO::FETCH_ASSOC)) {
