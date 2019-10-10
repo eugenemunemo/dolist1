@@ -78,7 +78,12 @@ if (!isset($_SESSION['UUID']) and !isset($_SESSION['username'])) {
         <a href="logout.php" class="btn btn-danger">Sign Out of Your Account</a>
     </p>
   </div>
+  <form>
 
+<ol class="list-group list_of_items">
+
+</ol>
+</form>
 
 
  

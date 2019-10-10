@@ -21,16 +21,16 @@ switch ($sort){
 $r->bindValue(':uuid',$UUID);
 $r->execute();
 if ($r->rowCount() == 0){
-    echo "<h3>No Current Notes!</h3>";
+    echo "<h3>No Cur</h3>";
     $empty = true;
 }else{
-    while ($row = $r->fetch(PDO::FETCH_ASSOC)){
+    while ($row = $r->fetch(PDO::FETCH_ASSOC)) {
         if ($row['completed'] == 1) {
             echo "<li class='checked'>".$row['title']."</li>";
         }else{
             echo "<li>".$row['title']."</li>";
         }
+        echo "<li>" . $row['created'] . "</li>";
     }
-}
-
-?>
+ }
+ ?>
