@@ -6,7 +6,7 @@ class Processor
 {
 	public $userId;
 	public $conn;
-
+// Create connection
 	public function __construct()
 	{
 		$servername = "167.71.74.228";
@@ -16,7 +16,7 @@ class Processor
 		$this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$this->userId = $_SESSION['UUID'];
 	}
-
+//to facilitate the catching of potential exceptions
 	public function addTodo($post)
 	{
 		try {
