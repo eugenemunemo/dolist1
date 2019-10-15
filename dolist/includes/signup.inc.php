@@ -41,10 +41,8 @@ $us = strip_tags($us);
 $notAllowedChars = ['/',"'",'"',"\\","(",")","[","]","{","}"];
 foreach ($notAllowedChars as $val) {
     if (strpos($us,$val) !== false){
-        $_SESSION['tempT']= "Signup Error";
-        $_SESSION['temp']="Username '<b>".$us."</b>' Contains Banned Chars! ";
-        header('Location: ../signup.php');
-        exit(); 
+        echo "<h1>Username '<b>".$us."</b>' Contains Banned Chars!</h1>";
+        exit();
     }
 }
 
@@ -55,13 +53,10 @@ foreach ($notAllowedChars as $val) {
 if($pw != $pwconf){
     $_SESSION['tempT']= "Signup Error";
     $_SESSION['temp']="Passwords Don't Match! ";
-    header('Location: ../signup.php');
     exit();
 }
 if(validString($pw,$pwconf) == false){
-    $_SESSION['tempT']= "Signup Error";
-    $_SESSION['temp']='Password Not Strong Enough';
-    header('Location: ../signup.php');
+    echo '<h1>Password Not Strong Enough</h1>';
     exit();
 }
 
@@ -84,17 +79,18 @@ $r= null;
 
 
 
+$id = substr(generateMDGUID(), 0, 255);
 
-$UUID = substr(generateMDGUID(), 0, 255);
+$UUID = $id;
 $r = $conn->prepare("INSERT INTO `users`(`UUID`, `username`, `password`) VALUES (:UUID,:US,:PW)");
 $r->bindValue(':UUID',$UUID);
 $r->bindValue(':US',$us);
 $r->bindValue(':PW',password_hash($pw, PASSWORD_DEFAULT));
 $r->execute();
-if ($r->rowCount() >= 1){
-    $_SESSION['tempT']= "Signup Successful";
-    $_SESSION['temp']=$us.", Your account has been created <a href='./login.php'>Login!</a> ";
-    header('Location: ../signup.php');
+if ($r->rowCount() >= 1) {
+    $_SESSION['UUID']= $id;
+    $_SESSION['username'] = $us;
+    header('Location: ../');
     exit();
 }
 

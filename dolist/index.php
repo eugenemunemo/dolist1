@@ -62,6 +62,7 @@ if (!isset($_SESSION['UUID']) && !isset($_SESSION['username'])) {
 						Add
 					</button>
 				</form>
+				<!--drop down for new , old  and alphabetic-->
 				<div class='form-group'>
 					<select class="changeSort form-control" id="changeSort">
 						<option value="newOld" <?php if ($sort == "newOld"){echo "selected";} ?> >Newest - Oldest</option>
@@ -110,6 +111,7 @@ if (!isset($_SESSION['UUID']) && !isset($_SESSION['username'])) {
 				<?php endforeach; ?>
 			</ul>
 		</div>
+		<!--log out. sign out-->
 		<p class='p-3'>
 			<a href="logout.php" class="btn btn-danger">SIGN OUT</a>
 		</p>

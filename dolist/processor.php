@@ -1,8 +1,7 @@
 <?php
 
 session_start();
-include('includes/db.inc.php');
-include('includes/functions.php');
+
 class Processor
 {
 	public $userId;
