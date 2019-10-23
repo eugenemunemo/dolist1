@@ -90,6 +90,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['mark_todo'])) {
 		  "color": "#000000"
 		},
 		"polygon": {
+		  "nb_sides": 5
 		},
 		"image": {
 		  "src": "img/github.svg",
